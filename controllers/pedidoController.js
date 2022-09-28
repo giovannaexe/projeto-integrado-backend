@@ -1,6 +1,6 @@
 const createError = require("http-errors");
 
-const pedido= [
+const pedido = [
   {
     id: 1,
     pedido_escolhido: "hambúrguer",
@@ -60,7 +60,7 @@ function atualizarPedido(req, res, next) {
     res.status(201).json(novoPedido);
 }
 function deletarPedido (req, res, next) {
-  const localizar = pedido.findIndex(estoque => pedido.id === Number(req.params.id));
+  const localizar = pedido.findIndex(pedido => pedido.id === Number(req.params.id));
   if(localizar < 0){
           return res.status(404).json({msg:"Pedido não encontrado"});
   }

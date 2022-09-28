@@ -28,7 +28,7 @@
                 }
             }
         },
-        "/estoque/{id}": {
+        "/pedido/{id}": {
             "get": {
                 "description": "Exibe pedido por ID",
                 "tags": ["Pedido"],
@@ -59,7 +59,7 @@
                 }
             }
         },
-        "/criar/estoque": {
+        "/criar/pedido": {
             "post": {
                 "description": "Cria um pedido",
                 "tags": ["Pedido"],
@@ -80,7 +80,7 @@
                 }
              } 
      },
-        "/atualizar/estoque/{id}": {
+        "/atualizar/pedido/{id}": {
             "put": {
                 "parameters": [
                     {
@@ -114,7 +114,7 @@
                 }
             }
         },
-        "/deletar/estoque/{id}": {
+        "/deletar/pedido/{id}": {
             "delete": {
                 "description": "Deleta um pedido por ID",
                 "tags": ["Pedido"],
