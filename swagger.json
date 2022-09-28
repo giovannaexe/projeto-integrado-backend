@@ -1,0 +1,168 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Documentação API Rest",
+        "description": "API Rest de pedidos de lanchonete",
+        "version": "0.0.1"
+    },
+    "paths": {
+        "/pedido": {
+            "description": "Listar pedido",
+            "get": {
+                "description": "Lista um pedido",
+                "tags": ["Pedido"],
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Pedido"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/estoque/{id}": {
+            "get": {
+                "description": "Exibe pedido por ID",
+                "tags": ["Pedido"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Pedido"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Não encontrado"
+                    }
+                }
+            }
+        },
+        "/criar/estoque": {
+            "post": {
+                "description": "Cria um pedido",
+                "tags": ["Pedido"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Pedido"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Pedido feito",
+                        "content": {}
+                    }
+                }
+             } 
+     },
+        "/atualizar/estoque/{id}": {
+            "put": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "description": "Atualiza um pedido",
+                "tags": ["Pedido"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Pedido"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Pedido atualizado",
+                        "content": {}
+                    },
+                    "404": {
+                        "description": "Não encontrado"
+                    }
+                }
+            }
+        },
+        "/deletar/estoque/{id}": {
+            "delete": {
+                "description": "Deleta um pedido por ID",
+                "tags": ["Pedido"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Pedido deletado",
+                        "content": {}
+                    },
+                    "404": {
+                        "description": "Não encontrado"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Pedido": {
+                "type": "object",
+                "properties": {
+                    "pedido_escolhido": {
+                        "type": "string",
+                        "example": "refrigerante"
+                    },
+                    "valor": {
+                        "type": "string",
+                        "example": "R$5,00"
+                    },
+                    "quantidade": {
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "detalhes": {
+                        "type": "string",
+                        "example": "com gelo e limão"
+                    }
+                }
+            }
+        }
+    }
+}
