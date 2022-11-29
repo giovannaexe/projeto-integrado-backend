@@ -20,7 +20,7 @@ async function registrar(req, res) {
         })
       }
       if (error.code == 11000) {
-        msg['erro'] = 'Email ja registrado'
+        msg['erro'] = 'Email já cadastrado'
       }
       return res.status(422).json(msg)
     })
@@ -32,11 +32,11 @@ async function login(req, res) {
     .select('+password')
     .then(doc => {
       if (!doc) {
-        return res.status(404).json({ erro: 'Usuario nao cadastrado' })
+        return res.status(404).json({ erro: 'Usuário não cadastrado' })
       }
       const autentica = bcrypt.compareSync(password, doc.password)
       if (!autentica) {
-        return res.status(400).json({ erro: 'senha nao invalida' })
+        return res.status(400).json({ erro: 'Senha não criada' })
       }
       const token = jwt.sign({ id: doc._id }, config.segredo, {
         expiresIn: '1d'

@@ -15,7 +15,7 @@ async function listarPedidoPorId(req, res) {
   await Pedido.findOne({ _id: ObjectId(req.params.id) })
     .then(pedido => {
       if (pedido) return res.json(pedido)
-      else return res.status(404).json('Pedido nao localizado')
+      else return res.status(404).json('Pedido não localizado!')
     })
     .catch(error => {
       return res.status(500).json({ error })
@@ -28,7 +28,7 @@ async function atualizarPedido(req, res) {
   })
     .then(pedido => {
       if (pedido) return res.status(204).end()
-      else return res.status(404).json('Pedido atualizado com sucesso!')
+      else return res.status(404).json('Seu pedido será refeito')
     })
     .catch(error => {
       return res.status(500).json({ error })
@@ -56,7 +56,7 @@ async function deletarPedido(req, res) {
   await Pedido.findOneAndDelete({ _id: ObjectId(req.params.id) })
     .then(pedido => {
       if (pedido) return res.status(204).end()
-      else return res.status(404).json('Pedido não encontrado!')
+      else return res.status(404).json('Acho que você nem chegou a pedir')
     })
 
     .catch(error => {

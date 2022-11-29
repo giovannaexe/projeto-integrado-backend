@@ -4,22 +4,22 @@ const Schema = mongoose.Schema
 const pedidoSchema = new Schema({
   pedido_escolhido: {
     type: String,
-    required: [true, 'Informar nome do pedido'],
+    required: [true, 'Informe o seu pedido'],
     trim: true
   },
   valor: {
     type: String,
-    required: [true, 'Informar a data do vencimento'],
+    required: [true, 'Qual o valor do pedido?'],
     trim: true
   },
   quantidade: {
     type: String,
-    required: [true, 'Informar valor'],
+    required: [true, 'Quantos você deseja'],
     trim: true
   },
   detalhes: {
     type: String,
-    required: [true, 'informar se ta pago, pendente ou em atraso'],
+    required: [true, 'Alguma restrição?'],
     trim: true
   }
 })
