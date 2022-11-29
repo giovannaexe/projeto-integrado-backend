@@ -1,0 +1,5 @@
+{
+  "porta": 3000,
+  "url": "mongodb+srv://gigi:123@cluster0.acp49j2.mongodb.net/lanchonete",
+  "segredo": "pasteldelflango"  
+}
