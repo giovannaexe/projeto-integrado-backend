@@ -56,8 +56,9 @@ async function deletarPedido(req, res) {
   await Pedido.findOneAndDelete({ _id: ObjectId(req.params.id) })
     .then(pedido => {
       if (pedido) return res.status(204).end()
-      else return res.status(404).json('Pedido deletado com sucesso!')
+      else return res.status(404).json('Pedido não encontrado!')
     })
+
     .catch(error => {
       return res.status(500).json({ error })
     })

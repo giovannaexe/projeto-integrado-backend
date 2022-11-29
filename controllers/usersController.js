@@ -1,7 +1,7 @@
 const User = require('../models/userModel')
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const config = require('../config/seucu.json')
+const config = require('../config/databaseConfig.json')
 
 async function registrar(req, res) {
   const user = new User(req.body)
