@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const config = require('../config/seucu.json')
+const config = require('../config/databaseConfig.json')
 
 module.exports = async function (req, res, next) {
   const { authorization } = req.headers

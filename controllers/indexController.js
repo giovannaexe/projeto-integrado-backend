@@ -1,5 +1,3 @@
-const createError = require('http-errors')
-
 function indexRouter(req, res, next) {
   res.json('API de pedidos de uma lanchonete')
 }
