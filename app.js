@@ -18,11 +18,11 @@ mongoose
   .connect(config.url)
   .then(
     app.listen(config.porta, () => {
-      console.log('API esta truvando meno')
+      console.log('API está ON!')
     })
   )
   .catch(error => {
-    console.log('Confere essa poha meno', error.message)
+    console.log('Ta errado ai, amigo brother.', error.message)
   })
 
 app.use('/', index)
